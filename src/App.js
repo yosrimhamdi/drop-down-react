@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Accordion from './Accordion';
+import Accordion from './components/Accordion';
 import items from './items';
 
 const App = () => (
