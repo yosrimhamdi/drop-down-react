@@ -3,9 +3,9 @@ import React from 'react';
 import Bellow from './Bellow';
 
 const Accordion = ({ items }) => {
-  const renderedItems = items.map(item => <Bellow item={item} />);
+  const renderedBellows = items.map(item => <Bellow item={item} />);
 
-  return <div>{renderedItems}</div>;
+  return <div>{renderedBellows}</div>;
 };
 
 export default Accordion;
