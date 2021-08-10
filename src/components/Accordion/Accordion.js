@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Bellow from './Bellow';
+import Bellow from '../Bellow/Bellow';
 import items from './items';
 
 const Accordion = () => {
