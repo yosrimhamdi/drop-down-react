@@ -14,7 +14,6 @@ const List = () => {
       },
     });
 
-    // setTerm('');
     setSearches(response.data.query.search);
   };
 
