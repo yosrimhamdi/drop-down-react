@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
 import Bellow from './Bellow';
+import items from './items';
 
-const Accordion = ({ items }) => {
+const Accordion = () => {
   const [activeIndex, setActiveIndex] = useState(-1);
 
   const renderedBellows = items.map(item => (
@@ -13,8 +14,6 @@ const Accordion = ({ items }) => {
       setActiveIndex={setActiveIndex}
     />
   ));
-
-  console.log('will rerender');
 
   return <div>{renderedBellows}</div>;
 };
