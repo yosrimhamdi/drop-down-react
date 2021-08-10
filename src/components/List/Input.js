@@ -6,7 +6,9 @@ const Input = ({ onFormSubmit }) => {
   const handleFormSubmit = e => {
     e.preventDefault();
 
-    onFormSubmit(term);
+    if (term) {
+      onFormSubmit(term);
+    }
   };
 
   console.log('wil render Input');
