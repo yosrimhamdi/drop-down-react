@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Accordion from './components/Accordion/Accordion';
-import List from './components/List';
-import DropDown from './components/DropDown';
-import Translate from './components/Translate';
-import Nav from './components/Nav/Nav';
+import Accordion from '@components/Accordion/Accordion';
+import List from '@components/List';
+import DropDown from '@components/DropDown';
+import Translate from '@components/Translate';
+import Nav from '@components/Nav/Nav';
 
 const App = () => (
   <Router>
