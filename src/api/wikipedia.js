@@ -8,5 +8,6 @@ export default axios.create({
     action: 'query',
     list: 'search',
     format: 'json',
+    origin: '*',
   },
 });
