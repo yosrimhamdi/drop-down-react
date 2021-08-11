@@ -5,12 +5,11 @@ const Input = ({ onFormSubmit }) => {
 
   useEffect(() => {
     console.log('UseEffect run');
+
     if (term) {
       onFormSubmit(term);
     }
-    //need to add some sort of timer here.
-    // warning onFormSubmit is missed in the deps array??!!!
-  }, [term]);
+  }, [term, onFormSubmit]);
 
   console.log('wil render Input');
 
