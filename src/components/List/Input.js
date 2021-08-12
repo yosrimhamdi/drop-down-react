@@ -1,17 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const Input = ({ onFormSubmit }) => {
   const [term, setTerm] = useState('programming');
+  const ref = useRef({});
 
   useEffect(() => {
-    console.log('UseEffect run');
+    const { timer } = ref.current;
 
-    if (term) {
-      onFormSubmit(term);
+    if (timer) {
+      clearTimeout(timer);
     }
-  }, [term, onFormSubmit]);
 
-  console.log('wil render Input');
+    ref.current.timer = setTimeout(() => {
+      if (term) {
+        onFormSubmit(term);
+      }
+    }, 500);
+  }, [term, onFormSubmit]);
 
   return (
     <form>

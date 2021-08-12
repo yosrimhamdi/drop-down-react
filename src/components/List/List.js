@@ -14,12 +14,8 @@ const List = () => {
       },
     });
 
-    console.log(response);
-
     setSearches(response.data.query.search);
   }, []);
-
-  console.log('will render List');
 
   return (
     <div>
