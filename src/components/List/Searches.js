@@ -7,6 +7,7 @@ const Searches = ({ searches }) => {
     <div key={pageid}>
       <h1>{title}</h1>
       <div dangerouslySetInnerHTML={{ __html: snippet }}></div>
+      <a href={`https://en.wikipedia.org?curid=${pageid}`}>Go</a>
     </div>
   ));
 
