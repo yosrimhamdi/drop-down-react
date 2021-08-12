@@ -14,6 +14,8 @@ const List = () => {
       },
     });
 
+    console.log(response);
+
     setSearches(response.data.query.search);
   }, []);
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const Input = ({ onFormSubmit }) => {
-  const [term, setTerm] = useState('');
+  const [term, setTerm] = useState('programming');
 
   useEffect(() => {
     console.log('UseEffect run');
