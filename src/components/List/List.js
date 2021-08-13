@@ -19,7 +19,7 @@ const List = () => {
 
   return (
     <div>
-      <Input onFormSubmit={onFormSubmit} />
+      <Input searches={searches} onFormSubmit={onFormSubmit} />
       <Searches searches={searches} />
     </div>
   );

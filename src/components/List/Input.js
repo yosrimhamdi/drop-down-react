@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
 
-const Input = ({ onFormSubmit }) => {
+const Input = ({ onFormSubmit, searches }) => {
   const [term, setTerm] = useState('programming');
 
   useEffect(() => {
-    const timerId = setTimeout(() => {
-      if (term) {
-        onFormSubmit(term);
-      }
-    }, 500);
+    if (term && !searches.length) {
+      onFormSubmit(term);
+    } else {
+      const timerId = setTimeout(() => {
+        if (term) {
+          onFormSubmit(term);
+        }
+      }, 500);
 
-    return () => {
-      clearTimeout(timerId);
-    };
+      return () => {
+        clearTimeout(timerId);
+      };
+    }
   }, [term, onFormSubmit]);
 
   return (
