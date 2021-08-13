@@ -2,18 +2,17 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const Input = ({ onFormSubmit }) => {
   const [term, setTerm] = useState('programming');
-  const timer = useRef(null);
 
   useEffect(() => {
-    if (timer.current) {
-      clearTimeout(timer.current);
-    }
-
-    timer.current = setTimeout(() => {
+    const timerId = setTimeout(() => {
       if (term) {
         onFormSubmit(term);
       }
     }, 500);
+
+    return () => {
+      clearTimeout(timerId);
+    };
   }, [term, onFormSubmit]);
 
   return (
