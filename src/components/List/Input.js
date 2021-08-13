@@ -2,14 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const Input = ({ onFormSubmit, searches }) => {
   const [term, setTerm] = useState('programming');
-  const prevTerm = useRef('programming');
+  const prevTerm = useRef(term);
 
   useEffect(() => {
     if (term && !searches.length) {
       onFormSubmit(term);
     } else {
       const timerId = setTimeout(() => {
-        if (term && term !== prevTerm.current) {
+        if (term && prevTerm.current !== term) {
           onFormSubmit(term);
         }
       }, 500);
