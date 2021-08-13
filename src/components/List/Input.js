@@ -5,7 +5,7 @@ const Input = ({ onFormSubmit, searches }) => {
   const prevTerm = useRef(term);
 
   useEffect(() => {
-    if (term && !searches.length) {
+    if (!searches.length) {
       onFormSubmit(term);
     } else {
       const timerId = setTimeout(() => {
