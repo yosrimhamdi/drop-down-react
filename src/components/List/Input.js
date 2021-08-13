@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const Input = ({ onFormSubmit, searches }) => {
   const [term, setTerm] = useState('programming');
+  const prevTerm = useRef('programming');
 
   useEffect(() => {
     if (term && !searches.length) {
       onFormSubmit(term);
     } else {
       const timerId = setTimeout(() => {
-        if (term) {
+        if (term && term !== prevTerm.current) {
           onFormSubmit(term);
         }
       }, 500);
@@ -17,7 +18,13 @@ const Input = ({ onFormSubmit, searches }) => {
         clearTimeout(timerId);
       };
     }
-  }, [term, onFormSubmit]);
+  }, [term, onFormSubmit, searches.length]);
+
+  const onInputChange = e => {
+    prevTerm.current = term;
+
+    setTerm(e.target.value);
+  };
 
   return (
     <form>
@@ -25,7 +32,7 @@ const Input = ({ onFormSubmit, searches }) => {
         value={term}
         type="text"
         placeholder="Seach wikipedia"
-        onChange={e => setTerm(e.target.value)}
+        onChange={onInputChange}
       />
     </form>
   );
