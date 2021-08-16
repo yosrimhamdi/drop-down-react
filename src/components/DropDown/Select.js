@@ -3,15 +3,11 @@ import classnames from 'classnames';
 
 const Select = ({ options, selection, setSelection }) => {
   const [open, setOpen] = useState(false);
-  const dropDown = useRef(null);
+  const ref = useRef();
 
   useEffect(() => {
     const closeMenu = e => {
-      if (
-        e.target.contains(dropDown.current) &&
-        e.target !== dropDown.current &&
-        open
-      ) {
+      if (!ref.current.contains(e.target) && open) {
         setOpen(false);
       }
     };
@@ -51,7 +47,7 @@ const Select = ({ options, selection, setSelection }) => {
   const defaultText = selection ? selection.label : 'Select Color';
 
   return (
-    <div className={dropdown} ref={dropDown} onClick={() => setOpen(!open)}>
+    <div className={dropdown} ref={ref} onClick={() => setOpen(!open)}>
       <input type="hidden" name="gender" />
       <i className="dropdown icon"></i>
       <div className={text}>{defaultText}</div>
