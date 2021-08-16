@@ -6,7 +6,7 @@ const Select = ({ options, selection, setSelection }) => {
   const dropDown = useRef(null);
 
   useEffect(() => {
-    const onBodyClick = e => {
+    const closeMenu = e => {
       if (
         e.target.contains(dropDown.current) &&
         e.target !== dropDown.current &&
@@ -16,9 +16,9 @@ const Select = ({ options, selection, setSelection }) => {
       }
     };
 
-    document.body.addEventListener('click', onBodyClick);
+    document.body.addEventListener('click', closeMenu);
 
-    return () => document.body.removeEventListener('click', onBodyClick);
+    return () => document.body.removeEventListener('click', closeMenu);
   }, [open]);
 
   const renderedOptions = options.map((option, i) => {
