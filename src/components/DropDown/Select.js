@@ -19,7 +19,7 @@ const Select = ({ options, selection, setSelection }) => {
     document.body.addEventListener('click', onBodyClick);
 
     return () => document.body.removeEventListener('click', onBodyClick);
-  }, []);
+  }, [open]);
 
   const renderedOptions = options.map((option, i) => {
     if (selection && selection.value === option.value) {
