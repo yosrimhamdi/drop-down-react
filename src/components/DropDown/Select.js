@@ -1,44 +1,44 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import classnames from 'classnames';
 
 const Select = ({ options, selection, setSelection }) => {
-  const menu = useRef(null);
+  const [open, setOpen] = useState(false);
 
-  const onSelectClick = () => {
-    menu.current.classList.toggle('visible');
-  };
+  const renderedOptions = options.map((option, i) => {
+    if (selection && selection.value === option.value) {
+      return null;
+    }
 
-  const onOptionClick = e => {
-    setSelection(options[e.target.dataset.index]);
-  };
+    return (
+      <div className="item" key={i} onClick={() => setSelection(option)}>
+        {option.label}
+      </div>
+    );
+  });
 
-  const renderedOptions = options.map(({ value, label }, i) => (
-    <div
-      className="item"
-      key={i}
-      data-value={value}
-      data-index={i}
-      onClick={onOptionClick}
-    >
-      {label}
-    </div>
-  ));
+  const dropdown = classnames({
+    'ui selection dropdown': true,
+    'visible active': open,
+  });
 
-  const className = classnames({
+  const text = classnames({
     'text': true,
     'default': !selection,
   });
 
+  const menu = classnames({
+    'menu': true,
+    'visible transition': open,
+  });
+
+  const defaultText = selection ? selection.label : 'Select Color';
+
   return (
-    <div className="ui selection dropdown" onClick={onSelectClick}>
+    <div className={dropdown} onClick={() => setOpen(!open)}>
       <input type="hidden" name="gender" />
       <i className="dropdown icon"></i>
-      <div className={className}>
-        {selection ? selection.label : 'Select Color'}
-      </div>
-      <div className="menu transition" ref={menu}>
-        {renderedOptions}
-      </div>
+      <div className={text}>{defaultText}</div>
+      <div className={menu}>{renderedOptions}</div>
     </div>
   );
 };
