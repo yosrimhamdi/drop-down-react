@@ -29,29 +29,29 @@ const Select = ({ options, selection, setSelection }) => {
     );
   });
 
-  const dropdown = classnames({
+  const dropDownClass = classnames({
     'ui selection dropdown': true,
     'visible active': open,
   });
 
-  const text = classnames({
-    'text': true,
-    'default': !selection,
-  });
-
-  const menu = classnames({
+  const menuClass = classnames({
     'menu': true,
     'visible transition': open,
   });
 
-  const defaultText = selection ? selection.label : 'Select Color';
+  const placeholderClass = classnames({
+    'text': true,
+    'default': !selection,
+  });
+
+  const placeholderContent = selection ? selection.label : 'Select Color';
 
   return (
-    <div className={dropdown} ref={ref} onClick={() => setOpen(!open)}>
+    <div className={dropDownClass} ref={ref} onClick={() => setOpen(!open)}>
       <input type="hidden" name="gender" />
       <i className="dropdown icon"></i>
-      <div className={text}>{defaultText}</div>
-      <div className={menu}>{renderedOptions}</div>
+      <div className={placeholderClass}>{placeholderContent}</div>
+      <div className={menuClass}>{renderedOptions}</div>
     </div>
   );
 };
