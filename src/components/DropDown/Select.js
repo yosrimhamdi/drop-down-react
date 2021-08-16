@@ -10,7 +10,7 @@ const Select = ({ options, selection, setSelection }) => {
       if (
         e.target.contains(dropDown.current) &&
         e.target !== dropDown.current &&
-        open === true
+        open
       ) {
         setOpen(false);
       }
