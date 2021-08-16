@@ -6,15 +6,15 @@ const Select = ({ options, selection, setSelection }) => {
   const ref = useRef();
 
   useEffect(() => {
-    const closeMenu = e => {
+    const onBodyClick = e => {
       if (!ref.current.contains(e.target) && open) {
         setOpen(false);
       }
     };
 
-    document.body.addEventListener('click', closeMenu);
+    document.body.addEventListener('click', onBodyClick);
 
-    return () => document.body.removeEventListener('click', closeMenu);
+    return () => document.body.removeEventListener('click', onBodyClick);
   }, [open]);
 
   const renderedOptions = options.map((option, i) => {
