@@ -18,9 +18,7 @@ const Select = ({ options, selection, setSelection }) => {
 
     document.body.addEventListener('click', onBodyClick);
 
-    return () => {
-      document.body.removeEventListener('click', onBodyClick);
-    };
+    return () => document.body.removeEventListener('click', onBodyClick);
   }, []);
 
   const renderedOptions = options.map((option, i) => {
