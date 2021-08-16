@@ -1,8 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import classnames from 'classnames';
 
 const Select = ({ options, selection, setSelection }) => {
   const [open, setOpen] = useState(false);
+  const dropDown = useRef(null);
+
+  useEffect(() => {
+    const onBodyClick = e => {
+      if (
+        e.target.contains(dropDown.current) &&
+        e.target !== dropDown.current &&
+        open === true
+      ) {
+        setOpen(false);
+      }
+    };
+
+    document.body.addEventListener('click', onBodyClick);
+
+    return () => {
+      document.body.removeEventListener('click', onBodyClick);
+    };
+  }, []);
 
   const renderedOptions = options.map((option, i) => {
     if (selection && selection.value === option.value) {
@@ -34,7 +53,7 @@ const Select = ({ options, selection, setSelection }) => {
   const defaultText = selection ? selection.label : 'Select Color';
 
   return (
-    <div className={dropdown} onClick={() => setOpen(!open)}>
+    <div className={dropdown} ref={dropDown} onClick={() => setOpen(!open)}>
       <input type="hidden" name="gender" />
       <i className="dropdown icon"></i>
       <div className={text}>{defaultText}</div>
