@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import classnames from 'classnames';
 
-const Select = ({ options, selection, setSelection }) => {
+const Select = ({ options, selection, setSelection, message }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef();
 
@@ -44,14 +44,17 @@ const Select = ({ options, selection, setSelection }) => {
     'default': !selection,
   });
 
-  const placeholderContent = selection ? selection.label : 'Select Color';
+  const placeholderContent = selection ? selection.label : message;
 
   return (
-    <div className={dropDownClass} ref={ref} onClick={() => setOpen(!open)}>
-      <input type="hidden" name="gender" />
-      <i className="dropdown icon"></i>
-      <div className={placeholderClass}>{placeholderContent}</div>
-      <div className={menuClass}>{renderedOptions}</div>
+    <div>
+      <h4>{message}</h4>
+      <div className={dropDownClass} ref={ref} onClick={() => setOpen(!open)}>
+        <input type="hidden" name="gender" />
+        <i className="dropdown icon"></i>
+        <div className={placeholderClass}>{placeholderContent}</div>
+        <div className={menuClass}>{renderedOptions}</div>
+      </div>
     </div>
   );
 };

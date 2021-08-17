@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Select from './Select';
+import Select from '@components/Select';
 import options from './options';
 
 const DropDown = () => {
@@ -12,6 +12,7 @@ const DropDown = () => {
         options={options}
         selection={selection}
         setSelection={setSelection}
+        message="Select a color"
       />
     </div>
   );
