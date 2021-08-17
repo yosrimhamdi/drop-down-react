@@ -7,7 +7,7 @@ const Select = ({ options, selection, setSelection, message }) => {
 
   useEffect(() => {
     const onBodyClick = e => {
-      if (!ref.current.contains(e.target) && open) {
+      if (ref.current && !ref.current.contains(e.target) && open) {
         setOpen(false);
       }
     };
