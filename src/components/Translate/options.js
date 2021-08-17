@@ -1,7 +1,7 @@
 const options = [
   {
-    label: 'English',
-    value: 'en',
+    label: 'Afrikaans',
+    value: 'af',
   },
   {
     label: 'Hindi',
