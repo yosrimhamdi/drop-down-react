@@ -1,7 +1,15 @@
 const options = [
   {
+    label: 'English',
+    value: 'en',
+  },
+  {
+    label: 'Hindi',
+    value: 'hi',
+  },
+  {
     label: 'Arabic',
-    value: 'Arabic',
+    value: 'ar',
   },
 ];
 

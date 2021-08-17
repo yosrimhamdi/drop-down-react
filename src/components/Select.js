@@ -41,10 +41,10 @@ const Select = ({ options, selection, setSelection, message }) => {
 
   const placeholderClass = classnames({
     'text': true,
-    'default': !selection,
+    'default': !selection.value,
   });
 
-  const placeholderContent = selection ? selection.label : message;
+  const placeholderContent = selection.value ? selection.label : message;
 
   return (
     <div>
