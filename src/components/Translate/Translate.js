@@ -6,7 +6,7 @@ import Convert from './Convert';
 import options from './options';
 
 const Translate = () => {
-  const [language, setLanguage] = useState({});
+  const [language, setLanguage] = useState(null);
   const [phrase, setPhrase] = useState('');
 
   return (
@@ -18,7 +18,7 @@ const Translate = () => {
         options={options}
         message="Select a language"
       />
-      <Convert language={language.value} phrase={phrase} />
+      <Convert language={language} phrase={phrase} />
     </div>
   );
 };
