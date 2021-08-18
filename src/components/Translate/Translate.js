@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import Input from './Input';
 import Select from '../Select';
 import Convert from './Convert';
 import options from './options';
@@ -10,12 +11,7 @@ const Translate = () => {
 
   return (
     <div>
-      <h4>Enter Text</h4>
-      <input
-        type="text"
-        value={phrase}
-        onChange={e => setPhrase(e.target.value)}
-      />
+      <Input term={phrase} setTerm={setPhrase} />
       <Select
         selection={language}
         setSelection={setLanguage}
